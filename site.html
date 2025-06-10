@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedicado á Pamela - Feito Por @murillo.r8</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            .video-section {
+                margin: 2rem 1rem 0;
+                padding: 2rem;
+            }
+            
+            .video-section h3 {
+                font-size: 2rem;
+            }
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Floating Hearts Animation */
+        .heart {
+            position: fixed;
+            color: rgba(0, 123, 255, 0.4);
+            font-size: 20px;
+            animation: float 8s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Header Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
+        }
+        
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 2s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 2s ease-out 0.5s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #007bff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        /* Section Styling */
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Our Story Section */
+        .story-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background: rgba(0, 0, 0, 0.7);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            border-left: 5px solid #007bff;
+            animation: slideIn 1s ease-out;
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-item h3 {
+            color: #007bff;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item p {
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Photos Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .photo-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s ease;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007bff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border: 2px dashed #007bff;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+        
+        .photo-caption {
+            font-style: italic;
+            color: #e0e0e0;
+            margin-top: 1rem;
+        }
+        
+        /* Love Letter Section */
+        .letter-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.3);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .letter-container::before {
+            content: '"';
+            font-size: 6rem;
+            color: rgba(0, 123, 255, 0.3);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .letter-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            text-align: left;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #007bff;
+            font-style: italic;
+        }
+        
+        /* Special Quotes */
+        .quotes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .quote-card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quote-card::before {
+            content: '💙';
+            font-size: 2rem;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0a0a;
+            padding: 0 10px;
+        }
+        
+        .quote-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #007bff;
+            text-align: center;
+        }
+        
+        /* Music Section */
+        .music-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
+            max-width: 600px;
+            margin: 2rem auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .music-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .music-info h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        
+        .music-note {
+            font-size: 3rem;
+            color: #007bff;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Video Section */
+        .video-section {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .video-section h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .video-container {
+            text-align: center;
+        }
+        
+        .video-container video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid #007bff;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            background: #000;
+        }
+        
+        .video-container video::-webkit-media-controls-panel {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .video-container video::-webkit-media-controls-play-button {
+            background-color: #007bff;
+            border-radius: 50%;
+        }
+        
+        .video-caption {
+            font-style: italic;
+            color: #e0e0e0;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Custom Audio Player */
+        .audio-player {
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #007bff;
+            text-align: center;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        
+        .audio-player audio {
+            width: 100%;
+            height: 50px;
+            outline: none;
+            background: transparent;
+        }
+        
+        .audio-player audio::-webkit-media-controls-panel {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
+        
+        .audio-player audio::-webkit-media-controls-play-button {
+            background-color: #007bff;
+            border-radius: 50%;
+        }
+        
+        .audio-player audio::-webkit-media-controls-current-time-display,
+        .audio-player audio::-webkit-media-controls-time-remaining-display {
+            color: #ffffff;
+        }
+        
+        .audio-player audio::-webkit-media-controls-timeline {
+            background-color: rgba(0, 123, 255, 0.3);
+            border-radius: 5px;
+        }
+        
+        .audio-player audio::-webkit-media-controls-volume-slider {
+            background-color: rgba(0, 123, 255, 0.3);
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        
+        .date {
+            color: #e0e0e0;
+            font-style: italic;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .quotes-container {
+                flex-direction: column;
+            }
+            
+            .letter-container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            .photo-placeholder {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div id="hearts-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Site Dedicado à Minha Pâmela 💙</h1>
+        <p>Minha Preta, Antes de Tudo.
+        <br>Quero te agradecer por deixar tudo mais leve quando estou ao seu lado, desde que você apareceu na minha vida tudo clareou.
+        <br>EU TE AMO e sempre vou fazer questão de dizer isso, para Deus e o Mundo.</p>
+        <p>Espero que Goste.
+            <br>Ass: Murillo, Seu Branco.</p>
+        <div class="scroll-indicator">↓</div>
+    </section>
+    
+    <!-- Nossa História -->
+    <section class="section">
+        <h2>Nossa História</h2>
+        <div class="story-timeline">
+            <div class="timeline-item">
+                <h3>Como Tudo Começou</h3>
+                <p>Tudo começou no aniversário do Calvin. A festa estava animada, com amigos e familia rindo e música boa, mas para mim, o mundo pareceu silenciar por um instante. Foi quando vi você passando, com um sorriso que iluminou o lugar. Meu olhar te seguiu, e uma certeza avassaladora tomou conta de mim enquanto mentalizei com toda convicção: 'Eu vou namorar com essa garota'.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Nosso Primeiro Encontro</h3>
+                <p>Lembro como se fosse ontem. Depois de me enrolar por meses, nosso primeiro encontro finalmente aconteceu. O Darling Diner foi o local escolhido, e aquela hamburgueria se tornou um lugar especial, o cenário onde começamos a escrever nossa história. Cada conversa, cada risada, cada olhar trocado... tudo foi mágico desde o primeiro instante, foi nesse encontro que me apaixonei ainda mais pela mulher incrível que você é.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galeria de Fotos -->
+    <section class="section">
+        <h2>Nossos Momentos</h2>
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/1.jpeg" alt="Primeiro Encontro">
+                </div>
+                <div class="photo-caption">Nosso primeiro momento juntos</div>
+            </div>
+            
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/especial.jpeg" alt="Momento Especial">
+                </div>
+                <div class="photo-caption">Momentos especiais</div>
+            </div>
+            
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/sorriso.jpeg" alt="Sorriso">
+                </div>
+                <div class="photo-caption">Sorrisos que guardo no coração</div>
+            </div>
+            
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/nosso-amor.jpeg" alt="Nosso Amor">
+                </div>
+                <div class="photo-caption">Nosso amor em cada olhar</div>
+            </div>
+            
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/nossos-momentos.jpeg" alt="Nosso Momentos">
+                </div>
+                <div class="photo-caption">Momentos que são só nossos</div>
+            </div>
+            
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="fotos/amor-formapura.jpeg" alt="Amor em Sua Forma Mais Pura">
+                </div>
+                <div class="photo-caption">O amor em sua forma mais pura</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nossa Música -->
+    <section class="section">
+        <h2>Nossa Música</h2>
+        <div class="music-section">
+            <div class="music-info">
+                <div class="music-note">🎵</div>
+                <h3>Luan Santana - Dia, Lugar e Hora</h3>
+                <p>Esta música é a nossa música. Como nós falamos: "Essa música relata uma história muito semelhante com a Nossa.".</p>
+            </div>
+            
+            <div class="audio-player">
+                🎵 <audio src="fotos/Luan Santana - Dia, lugar e hora (Novo DVD 1977).mp3" controls> </audio> 🎵<br>
+                <small>(Luan Santana - Dia, Lugar e Hora)</small>
+            </div>
+        </div>
+
+                <!-- Vídeo Nosso -->
+        <div class="video-section">
+            <h3>Nosso Vídeo Especial</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="videos/video01.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div class="video-caption">Cada momento com você se torna único,<br> e eu os guardo para sempre em minha memória 💙</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Carta de Amor -->
+    <section class="section">
+        <h2>Carta Aberta Para Minha Preta</h2>
+        <div class="letter-container">
+            <div class="letter-text">
+                Meu Amor, Minha Princesa,
+
+Desde o momento em que você surgiu na minha vida, tudo se transformou para melhor. Você trouxe uma luz que eu não sabia que faltava e me fez entender o que é a verdadeira felicidade. Quero que não tenha nenhuma dúvida: você é a mulher da minha vida.<br>
+
+<br>Sei que não sou um homem perfeito e que, às vezes, minhas falhas aparecem. Mas quero que saiba que, por trás de qualquer imperfeição, existe um homem que te ama com a alma. Um homem que admira sua força, seu sorriso e seu coração gigante, e que está disposto a mover o céu e a terra só para te ver feliz.<br>
+
+<br>Eu sonho com o nosso futuro todos os dias. Tenho a certeza de que seremos muito felizes juntos, construindo nossa história, realizando nossos sonhos e apoiando um ao outro em cada passo. Oro muito para que Deus abençoe nossos planos, pois tudo que mais quero é passar o resto da minha vida te fazendo a mulher mais amada do mundo.<br>
+
+<br>Eu Amo Você com a Alma, Minha Preta. 🫶🏾🫶🏾<br>
+
+<br>Com todo o meu amor,<br>
+Murillo, Seu Branco.
+            </div>
+        </div>
+    </section>
+    
+    <!-- Frases Especiais -->
+    <section class="section">
+        <h2>Eu te Amo Infinitamente</h2>
+        <p>Fiz esse Site de forma Simbólica, Para demonstrar um pouco do Amor que sinto por você.</p>
+        <p>Espero que Tenha Gostado!!</p>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Feito com muito amor para minha Namorada Pâmela 💙</p>
+        <p class="date">Dia dos Namorados - 2025</p>
+    </footer>
+    
+    <script>
+        // Floating Hearts Animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💙';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+            heart.style.opacity = Math.random();
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+        
+        // Create hearts periodically
+        setInterval(createHeart, 2000);
+        
+        // Smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            scrollIndicator.addEventListener('click', function() {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all timeline items
+        document.querySelectorAll('.timeline-item, .photo-item, .quote-card').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(50px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
